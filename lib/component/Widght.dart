@@ -146,20 +146,26 @@ Widget ButtonStaic(
   );
 }
 
-SpinKitWave SpinkitWave() {
-  return SpinKitWave(
-    size: 60,
-    itemCount: 15,
-    itemBuilder: (BuildContext context, int index) {
-      return DecoratedBox(
-        decoration: BoxDecoration(
-          color: index.isEven ? Color0 : Color4,
-        ),
-      );
-    },
+// SpinKitWave SpinkitWave() {
+//   return SpinKitWave(
+//     size: 60,
+//     itemCount: 15,
+//     itemBuilder: (BuildContext context, int index) {
+//       return DecoratedBox(
+//         decoration: BoxDecoration(
+//           color: index.isEven ? Color0 : Color4,
+//         ),
+//       );
+//     },
+//   );
+// }
+SpinKitFoldingCube SpinkitWave() {
+  return SpinKitFoldingCube(
+    color: Colors.blue,
+    size: 50.0,
+    
   );
 }
-
 Widget TextFieldWidght(
     {double? widthC,
     double? heightC,

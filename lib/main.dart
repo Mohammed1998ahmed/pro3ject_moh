@@ -1,3 +1,5 @@
+///// *************** MOHAMMED AHMED SH ******************* /////
+
 import 'dart:io';
 
 import 'package:awesome_notifications/awesome_notifications.dart';
@@ -94,10 +96,10 @@ class MyApp extends StatelessWidget {
         //         AuctionCalenderCubit()..configurePusher1(),
         //   ),
         // if (CachShpreafapp.getdata(key: "tokenProfile") != null)
-          BlocProvider<MainScreenCubit>(
-            create: (BuildContext context) =>
-                MainScreenCubit()..configurePusher(),
-          ),
+        BlocProvider<MainScreenCubit>(
+          create: (BuildContext context) =>
+              MainScreenCubit()..configurePusher(),
+        ),
       ],
       child: BlocConsumer<MainScreenCubit, MainScreenState>(
         listener: (context, state) {},

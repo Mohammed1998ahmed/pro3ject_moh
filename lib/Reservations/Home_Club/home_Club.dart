@@ -29,6 +29,7 @@ class Home1 extends StatelessWidget {
         ..getDataClubList()
         ..getDateGaregories()
         ..configurePusher()
+        ..configurePusherCategory()
         ..getHomeHelthOffers(),
       child: BlocConsumer<Home1Cubit, Home1State>(
         listener: (context, state) {

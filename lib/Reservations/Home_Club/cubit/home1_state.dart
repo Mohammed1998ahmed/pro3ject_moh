@@ -35,6 +35,8 @@ final class HomeCategoriesClubError extends Home1State {}
 
 final class HomeCategoriesClubSueccsufulyPusher extends Home1State {}
 
+final class HomeCategoriesClubSueccsufulyPusherCategory extends Home1State {}
+
 final class Home1ListClubBooleanSearch extends Home1State {}
 
 final class HomeOffersClubLoading extends Home1State {}

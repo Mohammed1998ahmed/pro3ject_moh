@@ -218,6 +218,57 @@ class Home1Cubit extends Cubit<Home1State> {
     }
   }
 
+  void configurePusherCategory() async {
+    PusherChannelsFlutter pusher = PusherChannelsFlutter.getInstance();
+    // pusher.connectionState.
+    try {
+      // app_id = "1793069" key = "e5d6ede1b86a447371cc" secret = "46834166895d119dc392" cluster = "eu"
+      await pusher.init(
+        apiKey: "e5d6ede1b86a447371cc",
+        cluster: "eu",
+        useTLS: true,
+        // authEndpoint: "https://192.168.109.241:8000/api/pusher/authenticate",
+        onEvent: (event) {
+          print(event.data.toString());
+          getDateGaregories();
+          emit(HomeCategoriesClubSueccsufulyPusherCategory());
+          // chatCubit.pusherMessage.add(event.data);
+        },
+        // onError: (String moh, int? id, dynamic inmess) {
+        //   print(moh + id.toString() + inmess.toString());
+        // },
+        // authEndpoint: ,
+        // authParams: ,
+        // useTLS: true,
+        onConnectionStateChange: onConnectionStateChange,
+        onError: onError,
+        onSubscriptionSucceeded: onSubscriptionSucceeded,
+        // onEvent: onEvent,
+        onSubscriptionError: onSubscriptionError,
+        onDecryptionFailure: onDecryptionFailure,
+        onMemberAdded: onMemberAdded,
+        onMemberRemoved: onMemberRemoved,
+        // onConnectionStateChange: onConnectionStateChange,
+        // onError: onError,
+        // onSubscriptionSucceeded: onSubscriptionSucceeded,
+        // onEvent: onEvent,
+        // onSubscriptionError: onSubscriptionError,
+        // onDecryptionFailure: onDecryptionFailure,
+        // onMemberAdded: onMemberAdded,
+        // onMemberRemoved: onMemberRemoved,
+        // authEndpoint: "<Your Authendpoint>",
+        // onAuthorizer: onAuthorizer1,
+      );
+      await pusher.subscribe(channelName: "category", onEvent: onEvent1);
+// await pusher.trigger(onEvent: onEvent1);
+
+      // await pusher.onev
+      await pusher.connect();
+    } catch (e) {
+      print("ERROR: $e" + e.toString());
+    }
+  }
+
   AlloffersClubsModel? alloffersModel;
   void getHomeHelthOffers() {
     emit(HomeOffersClubLoading());

@@ -31,7 +31,7 @@ final ColorLine1 = const Color.fromRGBO(90, 0, 114, 1);
 
 final ColorLine2 = Color.fromRGBO(204, 167, 106, 1);
 // String imageBackground = 'assets/images/b4.png';
-String imageBackground = 'assets/images/background1.png';
+String imageBackground = 'assets/images/images (5).jpeg';
 
 ///onBording
 class DefuiltContainar extends StatelessWidget {

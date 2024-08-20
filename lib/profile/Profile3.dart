@@ -10,6 +10,7 @@ import 'package:thi/profile/cubit/profile_cubit.dart';
 import 'package:thi/profile/favovoriteIstable/favovrite.dart';
 import 'package:thi/profile/hospetel/hospatel.dart';
 
+import 'AuctionUserID/AuctiondsUserID.dart';
 import 'profile2.dart';
 
 class Profile2 extends StatefulWidget {
@@ -178,6 +179,28 @@ class _Profile2State extends State<Profile2> {
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
                                       SelectTypeBooking(),
+                                ),
+                              );
+                            },
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 17.5, right: 10),
+                            child:
+                                Divider(color: Color.fromRGBO(50, 52, 70, 1)),
+                          ),
+                            ButtonProfile(
+                            Height: Height,
+                            Width: Width,
+                            context: context,
+                            icon: Icons.book,
+                            title: "Auctions",
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute<void>(
+                                  builder: (BuildContext context) =>
+                                      AuctionNav(),
                                 ),
                               );
                             },

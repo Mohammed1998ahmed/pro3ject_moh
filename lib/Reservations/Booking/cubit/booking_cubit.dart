@@ -226,12 +226,12 @@ class BookingCubit extends Cubit<BookingState> {
         onSubscriptionSucceeded: onSubscriptionSucceeded,
         onEvent: (event) {
           print(
-              "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+              "yyyyyyyyyyyyLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
 
           /////////////////edit
           getDataListTime(trainer_id, date);
           print(
-              "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+              "yyyyyyyyyyLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
 
           print("onEventerererer: ${event.data}" +
               "((((((((((BookingBookingBookingBookingonEventerererer,,,,,,,,,,,999999999999999))))))))))");
@@ -264,7 +264,9 @@ class BookingCubit extends Cubit<BookingState> {
         // authEndpoint: "<Your Authendpoint>",
         // onAuthorizer: onAuthorizer1,
       );
-      await pusher.subscribe(channelName: "booking", onEvent: onEvent11);
+      await pusher.subscribe(
+          channelName: "booking",
+          onEvent: onEvent11(trainer_id: trainer_id, date: date));
 // await pusher.trigger(onEvent: onEvent1);
       emit(MainScreenConfigPusheBooking());
       // await pusher.onev
@@ -274,21 +276,28 @@ class BookingCubit extends Cubit<BookingState> {
     }
   }
 
-  void onEvent11(dynamic event) {
-    print("onEvent: $event");
-    // print("onEvent: $event["data"]["message"].toString());
-    // final data = json.decode(event.data);
-    // if (data["message"] != null) {
-    //   print("onEventerererer: ${data["message"]}" +
-    //       "((((((((((9999999999999999999999999999999))))))))))");
-    //   LocalNotifations.simpleLocalNotifation(
-    //       title: "Add Trinner",
-    //       body: data["message"].toString(),
-    //       payload: "payload");
-    // }
-    // LocalNotifations.simpleLocalNotifation(
-    //     title: "Add Trinner", body: "sssssssssssssss", payload: "payload");
-    emit(MainScreenConfigPusheBookingEvent());
+  Function onEvent11({required int trainer_id, required String date}) {
+    return (dynamic event) {
+      // قم بتنفيذ العمليات المطلوبة هنا باستخدام event و id
+      getDataListTime(trainer_id, date);
+
+      print(
+          'Received event in customEventHandler with id: $trainer_id - ${event.toString()}');
+    };
+    // print("onEvent: $event");
+    // // print("onEvent: $event["data"]["message"].toString());
+    // // final data = json.decode(event.data);
+    // // if (data["message"] != null) {
+    // //   print("onEventerererer: ${data["message"]}" +
+    // //       "((((((((((9999999999999999999999999999999))))))))))");
+    // //   LocalNotifations.simpleLocalNotifation(
+    // //       title: "Add Trinner",
+    // //       body: data["message"].toString(),
+    // //       payload: "payload");
+    // // }
+    // // LocalNotifations.simpleLocalNotifation(
+    // //     title: "Add Trinner", body: "sssssssssssssss", payload: "payload");
+    // emit(MainScreenConfigPusheBookingEvent());
   }
 
   void configurePusher1({required int trainer_id, required String date}) async {

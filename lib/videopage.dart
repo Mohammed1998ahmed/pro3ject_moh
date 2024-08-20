@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoApp extends StatefulWidget {
-  const VideoApp({super.key});
+  const VideoApp({super.key, required String Urlvideo});
 
   @override
   _VideoAppState createState() => _VideoAppState();

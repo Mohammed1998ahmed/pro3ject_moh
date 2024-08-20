@@ -180,18 +180,18 @@ class HomeStableCubit extends Cubit<HomeStableState> {
         onSubscriptionSucceeded: onSubscriptionSucceeded,
         onEvent: (event) {
           print(
-              "trainertrainertrainerLLLLLLLLLLLLLLLLLLLLLLLLLkjhkjhhLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+              "100trainertrainertrainerLLLLLLLLLLLLLLLLLLLLLLLLLkjhkjhhLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
           getDataClubProfileTrainer(id_Club);
           print(
-              "trainertrainertrainerLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+              "100trainertrainertrainerLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
 
-          print("onEventerererer: ${event.data}" +
+          print("100onEventerererer: ${event.data}" +
               "((((((((((9999999999999999,,,,,,,,,,,999999999999999))))))))))");
           final data = json.decode(event.data);
-          print("onEventerererer: $event");
+          print("100onEventerererer: $event");
 
           if (data["message"] != null) {
-            print("onEventerererer: ${data["message"]}" +
+            print("100onEventerererer: ${data["message"]}" +
                 "((((((((((9999999999999ggggggggggggggggttttttt999999999999999999))))))))))");
             // LocalNotifations.simpleLocalNotifation(
             //     title: "Add Trinner",
@@ -216,7 +216,8 @@ class HomeStableCubit extends Cubit<HomeStableState> {
         // authEndpoint: "<Your Authendpoint>",
         // onAuthorizer: onAuthorizer1,
       );
-      await pusher.subscribe(channelName: "trainer", onEvent: onEvent11);
+      await pusher.subscribe(
+          channelName: "trainer", onEvent: onEvent11(id_Club));
 // await pusher.trigger(onEvent: onEvent1);
       emit(MainScreenConfigPusheTrinner());
       // await pusher.onev
@@ -226,21 +227,50 @@ class HomeStableCubit extends Cubit<HomeStableState> {
     }
   }
 
-  void onEvent11(dynamic event) {
-    print("onEvent: $event");
-    // print("onEvent: $event["data"]["message"].toString());
+  Function onEvent11(int idClub) {
+    return (dynamic event) {
+      // قم بتنفيذ العمليات المطلوبة هنا باستخدام event و id
+      getDataClubProfileTrainer(idClub);
+
+      print(
+          'Received event in customEventHandler with id: $idClub - ${event.toString()}');
+    };
+    // print("onEvent: $event");
+
+    // print(
+    //     "trainertrainertrainerLLLLLLLLLLLLLLLLLLLLLLLLLkjhkjhhLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+    // getDataClubProfileTrainer(idClub);
+    // print(
+    //     "trainertrainertrainerLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+
+    // print("onEventerererer: ${event.data}" +
+    //     "((((((((((9999999999999999,,,,,,,,,,,999999999999999))))))))))");
     // final data = json.decode(event.data);
+    // print("onEventerererer: $event");
+
     // if (data["message"] != null) {
     //   print("onEventerererer: ${data["message"]}" +
-    //       "((((((((((9999999999999999999999999999999))))))))))");
-    //   LocalNotifations.simpleLocalNotifation(
-    //       title: "Add Trinner",
-    //       body: data["message"].toString(),
-    //       payload: "payload");
+    //       "((((((((((9999999999999ggggggggggggggggttttttt999999999999999999))))))))))");
+    //   // LocalNotifations.simpleLocalNotifation(
+    //   //     title: "Add Trinner",
+    //   //     body: data["message"].toString(),
+    //   //     payload: "payload");
     // }
-    // LocalNotifations.simpleLocalNotifation(
-    //     title: "Add Trinner", body: "sssssssssssssss", payload: "payload");
-    emit(MainScreenConfigPusheTrinnerEvent());
+
+    // emit(MainScreenConfigPusheTrinnerEvent());
+    // // print("onEvent: $event["data"]["message"].toString());
+    // // final data = json.decode(event.data);
+    // // if (data["message"] != null) {
+    // //   print("onEventerererer: ${data["message"]}" +
+    // //       "((((((((((9999999999999999999999999999999))))))))))");
+    // //   LocalNotifations.simpleLocalNotifation(
+    // //       title: "Add Trinner",
+    // //       body: data["message"].toString(),
+    // //       payload: "payload");
+    // // }
+    // // LocalNotifations.simpleLocalNotifation(
+    // //     title: "Add Trinner", body: "sssssssssssssss", payload: "payload");
+    // emit(MainScreenConfigPusheTrinnerEvent());
   }
 
   FavoratieModel? favoratieModel;
@@ -530,6 +560,7 @@ class HomeStableCubit extends Cubit<HomeStableState> {
       emit(Home1EverageClubError());
     });
   }
+
 ///////////////
   IsReservitionModel? isReservitionModel;
   void postIsReservation({required int Club_Id, required int User_Id}) {

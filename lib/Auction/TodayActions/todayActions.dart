@@ -460,12 +460,15 @@ class _filterScreenState extends State<TodayActionsScreen> {
                                     as bool? ??
                                 false
                             ? Container(
-                                width: MediaQuery.of(context).size.width * 0.3,
+                                width: MediaQuery.of(context).size.width * 0.4,
                                 height:
                                     MediaQuery.of(context).size.height * 0.05,
-                                color: Color0,
+                                decoration: BoxDecoration(
+                                    color: Color0,
+                                    borderRadius: BorderRadius.circular(10.0)),
                                 alignment: AlignmentDirectional.center,
-                                child: text(title: "Shared", color: Color3),
+                                child: text(
+                                    title: "You are subscribed", color: Color3),
                               )
                             : Container()
                       ],

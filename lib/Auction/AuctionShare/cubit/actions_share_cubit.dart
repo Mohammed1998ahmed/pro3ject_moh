@@ -140,20 +140,28 @@ class ActionsShareCubit extends Cubit<ActionsShareState> {
     }
   }
 
-  void onEvent112(dynamic event) {
-    print("BookingBookingBookingBookingonEvent: $event");
-    // print("onEvent: $event["data"]["message"].toString());
-    // final data = json.decode(event.data);
-    // if (data["message"] != null) {
-    //   print("onEventerererer: ${data["message"]}" +
-    //       "((((((((((9999999999999999999999999999999))))))))))");
-    //   LocalNotifations.simpleLocalNotifation(
-    //       title: "Add Trinner",
-    //       body: data["message"].toString(),
-    //       payload: "payload");
-    // }
-    // LocalNotifations.simpleLocalNotifation(
-    //     title: "Add Trinner", body: "sssssssssssssss", payload: "payload");
-    emit(MainScreenConfigPusheBookingEvent1());
+  Function onEvent112(int Id_Auction) {
+    return (dynamic event) {
+      getCurentBid(ID_Acutions: Id_Auction);
+      getBuyerList(ID_Acutions: Id_Auction);
+      // قم بتنفيذ العمليات المطلوبة هنا باستخدام event و id
+      print(
+          'Received event in customEventHandler with id: $Id_Auction - ${event.toString()}');
+    };
+
+    // print("BookingBookingBookingBookingonEvent: $event");
+    // // print("onEvent: $event["data"]["message"].toString());
+    // // final data = json.decode(event.data);
+    // // if (data["message"] != null) {
+    // //   print("onEventerererer: ${data["message"]}" +
+    // //       "((((((((((9999999999999999999999999999999))))))))))");
+    // //   LocalNotifations.simpleLocalNotifation(
+    // //       title: "Add Trinner",
+    // //       body: data["message"].toString(),
+    // //       payload: "payload");
+    // // }
+    // // LocalNotifations.simpleLocalNotifation(
+    // //     title: "Add Trinner", body: "sssssssssssssss", payload: "payload");
+    // emit(MainScreenConfigPusheBookingEvent1());
   }
 }

@@ -5,19 +5,21 @@ import 'package:thi/NetWork/dioHelper.dart';
 import 'package:thi/profile/AuctionUserID/model/AuctinUserID.dart';
 import 'package:thi/sharePreferinces/shardprefericences.dart';
 
+import '../model/ProfileAuctions.dart';
+
 part 'auction_user_state.dart';
 
 class AuctionUserCubit extends Cubit<AuctionUserState> {
   AuctionUserCubit() : super(AuctionUserInitial());
   static AuctionUserCubit getObject(context) => BlocProvider.of(context);
-  AuctionsUserIdModel? auctionsUserIdModel;
+  ProfileAuctionModel? profileAuctionModel;
   void geActionsByUser() {
     emit(AuctionUserLoading());
     DioHelper.getDataClub(
             endpoint: "Auctions_that_A_User_Participates_in",
             token: CachShpreafapp.getdata(key: "tokenProfile"))
         .then((value) {
-      auctionsUserIdModel = AuctionsUserIdModel.fromJson(value.data);
+      profileAuctionModel = ProfileAuctionModel.fromJson(value.data);
       // for (var i = 0; i < auctionsUserIdModel!.auctions!.length; i++) {
       //   CachShpreafapp.getdata(
       //           key:

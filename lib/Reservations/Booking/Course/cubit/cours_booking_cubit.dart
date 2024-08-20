@@ -337,7 +337,8 @@ class CoursBookingCubit extends Cubit<CoursBookingState> {
         // authEndpoint: "<Your Authendpoint>",
         // onAuthorizer: onAuthorizer1,
       );
-      await pusher.subscribe(channelName: "class", onEvent: onEvent112);
+      await pusher.subscribe(
+          channelName: "class", onEvent: onEvent112(cours_Id));
 // await pusher.trigger(onEvent: onEvent1);
       emit(MainScreenConfigPusheBooking1());
       // await pusher.onev
@@ -347,20 +348,28 @@ class CoursBookingCubit extends Cubit<CoursBookingState> {
     }
   }
 
-  void onEvent112(dynamic event) {
-    print("BookingBookingBookingBookingonEvent: $event");
-    // print("onEvent: $event["data"]["message"].toString());
-    // final data = json.decode(event.data);
-    // if (data["message"] != null) {
-    //   print("onEventerererer: ${data["message"]}" +
-    //       "((((((((((9999999999999999999999999999999))))))))))");
-    //   LocalNotifations.simpleLocalNotifation(
-    //       title: "Add Trinner",
-    //       body: data["message"].toString(),
-    //       payload: "payload");
-    // }
-    // LocalNotifations.simpleLocalNotifation(
-    //     title: "Add Trinner", body: "sssssssssssssss", payload: "payload");
-    emit(MainScreenConfigPusheBookingEvent1());
+  Function onEvent112(int idCours) {
+    return (dynamic event) {
+      getDatailsClassTime(cours_Id: idCours);
+
+      // قم بتنفيذ العمليات المطلوبة هنا باستخدام event و id
+      print(
+          'Received event in customEventHandler with id: $idCours - ${event.toString()}');
+    };
+
+    // print("BookingBookingBookingBookingonEvent: $event");
+    // // print("onEvent: $event["data"]["message"].toString());
+    // // final data = json.decode(event.data);
+    // // if (data["message"] != null) {
+    // //   print("onEventerererer: ${data["message"]}" +
+    // //       "((((((((((9999999999999999999999999999999))))))))))");
+    // //   LocalNotifations.simpleLocalNotifation(
+    // //       title: "Add Trinner",
+    // //       body: data["message"].toString(),
+    // //       payload: "payload");
+    // // }
+    // // LocalNotifations.simpleLocalNotifation(
+    // //     title: "Add Trinner", body: "sssssssssssssss", payload: "payload");
+    // emit(MainScreenConfigPusheBookingEvent1());
   }
 }
